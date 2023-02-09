@@ -1,0 +1,71 @@
+.forms {
+  width: calc(100vw - 880px);
+  min-height: 1080px;
+  background-color: rgb(247, 247, 247);
+}
+
+header {
+  display: flex;
+  height: 88px;
+  width: 798px;
+  margin: auto;
+  border-bottom: 1px solid black;
+}
+
+header h1 {
+  font-family: "Helvetica Neue";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+  margin-top: 47px;
+}
+
+p {
+  font-family: "Helvetica Neue";
+
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 23.86px;
+  position: absolute;
+  width: 29px;
+  height: 24px;
+  left: 900px;
+  top: 49px;
+}
+
+.backButton button {
+  position: absolute;
+  width: 9.21px;
+  height: 16px;
+  left: 62px;
+  top: 57px;
+}
+
+.nextBtn {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 40px;
+  gap: 20px;
+
+  position: absolute;
+  width: 151px;
+  height: 48px;
+  right: 972px;
+  bottom: 65px;
+
+  background: #6b40e3;
+  border-radius: 4px;
+
+  font-family: "Helvetica Neue";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+
+  letter-spacing: 0.08em;
+
+  color: #ffffff;
+}

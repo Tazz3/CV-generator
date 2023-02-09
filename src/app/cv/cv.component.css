@@ -1,0 +1,14 @@
+.cvPage {
+  position: relative;
+  width: 822px;
+  height: 1080px;
+  right: 0px;
+  top: 0px;
+}
+.cvStamp {
+  position: absolute;
+  width: 42px;
+  height: 42px;
+  left: 78px;
+  top: 994px;
+}
