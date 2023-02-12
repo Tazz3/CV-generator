@@ -14,13 +14,14 @@ export class ResumeComponent implements OnInit {
 
   pageNum: number | undefined;
   pageCheck() {
-    this.localS = localStorage.getItem('page');
+    this.localS = sessionStorage.getItem('page');
     this.pageNum = parseInt(this.localS);
   }
 
   ngDoCheck() {
-    if (localStorage.getItem('page') !== this.localS) {
+    if (sessionStorage.getItem('page') !== this.localS) {
       this.pageCheck();
+      localStorage.clear();
     }
   }
 

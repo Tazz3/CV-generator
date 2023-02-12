@@ -1,4 +1,24 @@
 <section class="cvPage">
+  <section class="personal-info">
+    <h2 class="name">{{ fName }}</h2>
+    <h2 class="surName">{{ surName }}</h2>
+    <img [src]="image" alt="personal-pic" title="personal-pic" *ngIf="image" />
+    <div class="email" *ngIf="email">
+      <img src="../../assets/Images/email.png" alt="email" title="email" />
+      <p>{{ email }}</p>
+    </div>
+    <div class="phone" *ngIf="phone">
+      <img src="../../assets/Images/phone.png" alt="phone" title="phone" />
+      <p>{{ phone }}</p>
+    </div>
+    <div class="about-info" *ngIf="aboutMe">
+      <h3>ჩემ შესახებ</h3>
+      <p>
+        {{ aboutMe }}
+      </p>
+    </div>
+  </section>
+  <hr *ngIf="lineValid" />
   <img
     class="cvStamp"
     src="../../assets/Images/LOGO-12-1.png"

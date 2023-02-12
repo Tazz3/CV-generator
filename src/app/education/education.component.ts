@@ -9,9 +9,9 @@ export class EducationComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
-  localItem: any = localStorage.getItem('page');
+  localItem: any = sessionStorage.getItem('page');
   curPage: number = parseInt(this.localItem);
   prevPage() {
-    return localStorage.setItem('page', '2');
+    return sessionStorage.setItem('page', '2');
   }
 }

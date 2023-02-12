@@ -5,10 +5,138 @@
   right: 0px;
   top: 0px;
 }
+
 .cvStamp {
   position: absolute;
   width: 42px;
   height: 42px;
   left: 78px;
   top: 994px;
+}
+
+.name {
+  position: absolute;
+  width: 123px;
+  height: 42px;
+  left: 80px;
+  top: 68px;
+
+  font-family: "Helvetica Neue";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 34px;
+  line-height: 42px;
+
+  color: #f93b1d;
+}
+
+.surName {
+  position: absolute;
+  width: 166px;
+  height: 42px;
+  left: 223px;
+  top: 68px;
+
+  font-family: "Helvetica Neue";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 34px;
+  line-height: 42px;
+
+  color: #f93b1d;
+}
+
+.personal-info img {
+  position: absolute;
+  width: 246px;
+  height: 246px;
+  left: 501px;
+  top: 48px;
+
+  border-radius: 133px;
+}
+
+.email img {
+  position: absolute;
+  width: 16.67px;
+  height: 16.67px;
+  left: 82.67px;
+  right: 8.33%;
+  top: 130.67px;
+  bottom: 8.33%;
+}
+
+.email p {
+  position: absolute;
+  width: 187px;
+  height: 21px;
+  left: 111px;
+  top: 127px;
+
+  font-family: "Helvetica Neue";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+
+  color: #1a1a1a;
+}
+
+.phone img {
+  position: absolute;
+  width: 16.67px;
+  height: 16.67px;
+  left: 82.67px;
+  right: 8.33%;
+  top: 160.67px;
+  bottom: 8.33%;
+}
+
+.phone p {
+  position: absolute;
+  width: 151px;
+  height: 21px;
+  left: 111px;
+  top: 158px;
+
+  font-family: "Helvetica Neue";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+
+  color: #1a1a1a;
+}
+
+.about-info h3 {
+  position: absolute;
+  width: 118px;
+  min-height: 22px;
+  left: 80px;
+  top: 213px;
+
+  font-family: "Helvetica Neue";
+  font-style: normal;
+  font-weight: 900;
+  font-size: 18px;
+  line-height: 22px;
+
+  color: #f93b1d;
+}
+.about-info p {
+  position: absolute;
+  width: 432px;
+  height: 72px;
+  left: 80px;
+  top: 250px;
+
+  font-family: "Helvetica Neue";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+
+  text-transform: lowercase;
+
+  color: #000000;
 }

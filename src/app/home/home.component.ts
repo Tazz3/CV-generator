@@ -11,9 +11,9 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {}
   pageNumb: number = 1;
   sendPage(pageNum: any) {
-    console.log('local storage should work');
+    console.log('session storage should work');
 
     pageNum = pageNum.toString();
-    return localStorage.setItem('page', pageNum);
+    return sessionStorage.setItem('page', pageNum);
   }
 }

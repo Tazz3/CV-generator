@@ -8,9 +8,236 @@
       />
     </button>
   </div>
+  <div class="validation">
+    <img
+      src="../../assets/Images/Vector-(2).png"
+      alt="green"
+      title="green"
+      class="nameValid"
+      *ngIf="!myForm.get('name').valid && !myForm.get('name').touched"
+    />
+    <img
+      src="../../assets/Images/Vector-(1).png"
+      alt="red"
+      title="red"
+      class="nameInvalid"
+      *ngIf="myForm.get('name').invalid && myForm.get('name').touched"
+    />
+
+    <img
+      src="../../assets/Images/Vector-(2).png"
+      alt="green"
+      title="green"
+      class="surNameValid"
+      *ngIf="!myForm.get('surname').valid && !myForm.get('surname').touched"
+    />
+    <img
+      src="../../assets/Images/Vector-(1).png"
+      alt="red"
+      title="red"
+      class="surNameInvalid"
+      *ngIf="myForm.get('surname').invalid && myForm.get('surname').touched"
+    />
+
+    <div class="emailValid">
+      <img
+        src="../../assets/Images/Vector-(2).png"
+        alt="green"
+        title="green"
+        class="emailValid"
+        *ngIf="!myForm.get('email').valid && !myForm.get('email').touched"
+      />
+      <img
+        src="../../assets/Images/Vector-(1).png"
+        alt="red"
+        title="red"
+        class="emailInvalid"
+        *ngIf="myForm.get('email').invalid && myForm.get('email').touched"
+      />
+    </div>
+    <div class="phoneValid">
+      <img
+        src="../../assets/Images/Vector-(2).png"
+        alt="green"
+        title="green"
+        class="phoneValid"
+        *ngIf="
+          !myForm.get('phoneNumber').valid && !myForm.get('phoneNumber').touched
+        "
+      />
+      <img
+        src="../../assets/Images/Vector-(1).png"
+        alt="red"
+        title="red"
+        class="phoneInvalid"
+        *ngIf="myForm.get('name').invalid && myForm.get('name').touched"
+      />
+    </div>
+  </div>
   <header>
     <h1>პირადი ინფო</h1>
   </header>
   <p>{{ curPage }}/3</p>
-  <button class="nextBtn" (click)="pageChange()">შემდეგი</button>
+  <form action="" [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
+    <div class="form-names">
+      <div class="form-group">
+        <label
+          for="firstName"
+          class="topLabel"
+          [ngStyle]="{
+            color:
+              myForm.get('name').invalid && myForm.get('name').touched
+                ? 'red'
+                : 'black'
+          }"
+        >
+          სახელი
+        </label>
+        <input
+          type="text"
+          placeholder="ანზორ"
+          id="firstName"
+          name="firstName"
+          [(ngModel)]="fName"
+          formControlName="name"
+          (keyup)="cvUpdate()"
+          [ngStyle]="{
+            'border-color':
+              myForm.get('name').invalid && myForm.get('name').touched
+                ? 'red'
+                : 'green'
+          }"
+        />
+
+        <label for="firstName" class="bottomLabel"
+          >მინიმუმ 2 ასო. ქართული ასოები</label
+        >
+      </div>
+      <div class="form-group">
+        <label
+          for="lastName"
+          class="topLabel"
+          [ngStyle]="{
+            color:
+              myForm.get('surname').invalid && myForm.get('surname').touched
+                ? 'red'
+                : 'black'
+          }"
+          >გვარი</label
+        >
+        <input
+          type="text"
+          placeholder="მუმლაძე"
+          id="lastName"
+          [(ngModel)]="surName"
+          formControlName="surname"
+          (keyup)="cvUpdate()"
+          [ngStyle]="{
+            'border-color':
+              myForm.get('surname').invalid && myForm.get('surname').touched
+                ? 'red'
+                : 'green'
+          }"
+        />
+
+        <label for="lastName" class="bottomLabel"
+          >მინიმუმ 2 ასო. ქართული ასოები</label
+        >
+      </div>
+    </div>
+    <div class="picture-form">
+      <label for="picture">პირადი ფოტოს ატვირთვა</label>
+      <input
+        type="file"
+        #picture
+        name="picture"
+        id="picture"
+        style="display: none"
+        [(ngModel)]="image"
+        formControlName="image"
+        (change)="uploadImage($event)"
+      />
+      <button (click)="picture.click()">ატვირთვა</button>
+    </div>
+    <div class="about-info">
+      <label for="aboutInfo">ჩემ შესახებ (არასავალდებულო) </label>
+      <input
+        type="text"
+        name="anoutInfo"
+        id="aboutInfo"
+        placeholder="ზოგადი ინფო შენ შესახებ"
+        [(ngModel)]="aboutMe"
+        formControlName="aboutMe"
+        (keyup)="cvUpdate()"
+      />
+    </div>
+    <div class="email-phone-info">
+      <label
+        for="email"
+        class="topLabel"
+        [ngStyle]="{
+          color:
+            myForm.get('email').invalid && myForm.get('email').touched
+              ? 'red'
+              : 'black'
+        }"
+        >ელ.ფოსტა</label
+      >
+      <input
+        type="email"
+        name="email"
+        id="email"
+        placeholder="anzor666@redberry.ge"
+        formControlName="email"
+        [(ngModel)]="email"
+        (keyup)="cvUpdate()"
+        [ngStyle]="{
+          'border-color':
+            myForm.get('email').invalid && myForm.get('email').touched
+              ? 'red'
+              : 'green'
+        }"
+      />
+      <label for="email" class="bottomLabel">
+        უნდა მთავრდებოდეს @redberry.ge-ით
+      </label>
+    </div>
+    <div class="email-phone-info">
+      <label
+        for="phone"
+        class="topLabel"
+        [ngStyle]="{
+          color:
+            myForm.get('phoneNumber').invalid &&
+            myForm.get('phoneNumber').touched
+              ? 'red'
+              : 'black'
+        }"
+      >
+        მობილურის ნომერი
+      </label>
+      <input
+        type="text"
+        name="phone"
+        id="phone"
+        placeholder="+995 551 12 34 56"
+        formControlName="phoneNumber"
+        [(ngModel)]="phone"
+        (keyup)="cvUpdate()"
+        [ngStyle]="{
+          'border-color':
+            myForm.get('phoneNumber').invalid &&
+            myForm.get('phoneNumber').touched
+              ? 'red'
+              : 'green'
+        }"
+      />
+      <label for="phone" class="bottomLabel">
+        უნდა აკმაყოფილებდეს ქართული მობილურის ნომრის ფორმატს
+      </label>
+    </div>
+    <button class="nextBtn" [disabled]="!myForm.valid" (click)="pageChange()">
+      შემდეგი
+    </button>
+  </form>
 </section>

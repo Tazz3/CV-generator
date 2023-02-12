@@ -10,14 +10,14 @@ export class ExpperienceComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  localItem: any = localStorage.getItem('page');
+  localItem: any = sessionStorage.getItem('page');
   curPage: number = parseInt(this.localItem);
 
   prevPage() {
-    return localStorage.setItem('page', '1');
+    return sessionStorage.setItem('page', '1');
   }
 
   nextPage() {
-    return localStorage.setItem('page', '3');
+    return sessionStorage.setItem('page', '3');
   }
 }

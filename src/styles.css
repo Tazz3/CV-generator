@@ -4,3 +4,8 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+@font-face {
+  font-family: "Helvetica Neue";
+  src: url("./assets/font/HelveticaNeue.ttc") format("truetype");
+}
