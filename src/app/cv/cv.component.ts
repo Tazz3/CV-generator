@@ -36,9 +36,10 @@ export class CvComponent implements OnInit {
     }
     if (sessionStorage.getItem('firstLine') == 'true') {
       this.lineValid = true;
-      console.log(this.lineValid);
     }
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.ngDoCheck();
+  }
 }

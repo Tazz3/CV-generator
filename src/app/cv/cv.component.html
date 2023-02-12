@@ -11,14 +11,21 @@
       <img src="../../assets/Images/phone.png" alt="phone" title="phone" />
       <p>{{ phone }}</p>
     </div>
-    <div class="about-info" *ngIf="aboutMe">
-      <h3>ჩემ შესახებ</h3>
-      <p>
-        {{ aboutMe }}
-      </p>
+    <div
+      class="bottomLine"
+      [ngStyle]="{
+        'border-bottom': lineValid ? '2px solid #C8C8C8' : 'none'
+      }"
+    >
+      <div class="about-info" *ngIf="aboutMe">
+        <h3>ჩემ შესახებ</h3>
+        <p>
+          {{ aboutMe }}
+        </p>
+      </div>
     </div>
   </section>
-  <hr *ngIf="lineValid" />
+
   <img
     class="cvStamp"
     src="../../assets/Images/LOGO-12-1.png"

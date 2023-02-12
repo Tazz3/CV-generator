@@ -26,7 +26,7 @@ export class PersonalInfoComponent implements OnInit {
 
   fName: any = '';
   surName: any = '';
-  email: any = '';
+  eMail: any = '';
   phone: any = '';
   aboutMe: any = '';
   image: any = '';
@@ -44,18 +44,22 @@ export class PersonalInfoComponent implements OnInit {
     this.myForm.controls['image'].valid == true;
   }
 
-  cvUpdate() {
-    sessionStorage.setItem('name', this.fName);
-    sessionStorage.setItem('surname', this.surName);
-    sessionStorage.setItem('email', this.email);
-    sessionStorage.setItem('phone-number', this.phone);
-    sessionStorage.setItem('about-me', this.aboutMe);
-    console.log(
-      this.myForm,
-      this.myForm.get('image'),
-      this.myForm.controls['image'].value,
-      typeof this.myForm.controls['image'].value
-    );
+  cvUpdate(name: any) {
+    if (name == 'phone-number' && this.phone != null) {
+      sessionStorage.setItem('phone-number', this.phone);
+    }
+    if (name == 'email' && this.eMail != null) {
+      sessionStorage.setItem('email', this.eMail);
+    }
+    if (name == 'name' && this.fName != null) {
+      sessionStorage.setItem('name', this.fName);
+    }
+    if (name == 'surname' && this.surName != null) {
+      sessionStorage.setItem('surname', this.surName);
+    }
+    if (name == 'about-me' && this.aboutMe != null) {
+      sessionStorage.setItem('about-me', this.aboutMe);
+    }
   }
 
   ngOnInit(): void {
@@ -92,9 +96,13 @@ export class PersonalInfoComponent implements OnInit {
       image: ['', [Validators.minLength(3)]],
       aboutMe: [''],
     });
+
     this.fName = sessionStorage.getItem('name');
     this.surName = sessionStorage.getItem('surname');
-    this.email = sessionStorage.getItem('email');
+    if (sessionStorage.getItem('email') != null) {
+      this.eMail = sessionStorage.getItem('email');
+    }
+
     this.aboutMe = sessionStorage.getItem('about-me');
     this.phone = sessionStorage.getItem('phone-number');
     this.image = sessionStorage.getItem('image');

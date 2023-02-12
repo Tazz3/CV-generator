@@ -112,7 +112,7 @@
   position: absolute;
   width: 118px;
   min-height: 22px;
-  left: 80px;
+  left: 0px;
   top: 213px;
 
   font-family: "Helvetica Neue";
@@ -127,7 +127,7 @@
   position: absolute;
   width: 432px;
   height: 72px;
-  left: 80px;
+  left: 0px;
   top: 250px;
 
   font-family: "Helvetica Neue";
@@ -139,4 +139,11 @@
   text-transform: lowercase;
 
   color: #000000;
+}
+
+.bottomLine {
+  position: relative;
+  width: 680px;
+  min-height: 341px;
+  margin: auto;
 }

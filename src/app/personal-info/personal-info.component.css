@@ -5,6 +5,10 @@
   position: relative;
 }
 
+input:focus {
+  outline-color: #bcbcbc;
+}
+
 header {
   display: flex;
   height: 88px;
@@ -165,7 +169,7 @@ form {
   position: absolute;
   width: 107px;
   height: 27px;
-  left: 370px;
+  left: 380px;
   top: 325px;
 
   background: #0e80bf;
@@ -222,8 +226,10 @@ form {
   font-weight: 400;
   font-size: 16px;
   line-height: 21px;
-  padding-bottom: 69px;
+  padding-bottom: 16px;
   padding-left: 16px;
+  padding-top: -30px;
+  padding-right: 16px;
 
   color: rgba(0, 0, 0, 0.6);
 }
@@ -266,23 +272,48 @@ form {
 
 .nameValid {
   position: absolute;
-  margin-top: 258.75px;
+  margin-top: 208.75px;
   margin-left: 475.75px;
 }
 
 .nameInvalid {
   position: absolute;
-  margin-top: 258.75px;
-  margin-left: 505px;
+  margin-top: 208.75px;
+  margin-left: 530px;
 }
 
 .surNameValid {
   position: absolute;
-  margin-top: 258.75px;
-  margin-left: 900px;
+  margin-top: 208.75px;
+  margin-left: 910px;
 }
 .surNameInvalid {
   position: absolute;
-  margin-top: 258.75px;
-  margin-left: 940px;
+  margin-top: 208.75px;
+  margin-left: 961.5px;
+}
+
+.emailValid {
+  position: absolute;
+
+  margin-left: 912.75px;
+  margin-top: 612.25px;
+}
+
+.emailInvalid {
+  position: absolute;
+  margin-left: 961.5px;
+  margin-top: 609.25px;
+}
+
+.phoneValid {
+  position: absolute;
+  margin-top: 748.75px;
+  margin-left: 912.75px;
+}
+
+.phoneInvalid {
+  position: absolute;
+  margin-top: 745.75px;
+  margin-left: 961.5px;
 }
