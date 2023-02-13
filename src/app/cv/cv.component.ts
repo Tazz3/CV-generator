@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { JsonPipe } from '@angular/common';
-import { fromByteArray } from 'base64-js';
 
 @Component({
   selector: 'app-cv',
@@ -52,10 +51,11 @@ export class CvComponent implements OnInit {
     this.finishedProd['educations'] = JSON.parse(
       sessionStorage.getItem('education')
     );
-    const base64Image: any = sessionStorage.getItem('image');
-    const byteArray = fromByteArray(base64Image);
-    const blob = new Blob([byteArray], { type: 'image/jpeg' });
+    const image = sessionStorage.getItem('image');
+
     const formData = new FormData();
+    const blob = new Blob([image], { type: 'image/jpeg' });
+
     formData.append('image', blob, 'image.jpg');
     console.log(blob);
 

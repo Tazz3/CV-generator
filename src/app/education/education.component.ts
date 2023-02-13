@@ -51,6 +51,10 @@ export class EducationComponent implements OnInit {
     this.degreesEdu = JSON.parse(arrayAsString);
   }
 
+  reFreshing() {
+    sessionStorage.clear();
+  }
+
   finish() {
     console.log(this.myForm.valid);
     sessionStorage.setItem('finish', 'true');

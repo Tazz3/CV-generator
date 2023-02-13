@@ -57,8 +57,10 @@ export class PersonalInfoComponent implements OnInit {
 
   handleFileInput(event) {
     const file = event.target.files[0];
+    console.log(file);
     const reader = new FileReader();
     reader.readAsDataURL(file);
+    console.log(reader);
     reader.onload = () => {
       const dataURI: any = reader.result;
       sessionStorage.setItem('image', dataURI);
