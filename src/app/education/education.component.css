@@ -47,14 +47,14 @@ p {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 18px 30px;
+  padding: 18px 40px;
   gap: 20px;
 
   position: absolute;
+  bottom: 0px;
+  right: 0px;
   width: 151px;
   height: 48px;
-  right: 972px;
-  bottom: 65px;
 
   background: #6b40e3;
   border-radius: 4px;
@@ -81,8 +81,8 @@ p {
   position: absolute;
   width: 113px;
   height: 48px;
-  left: 150px;
-  bottom: 65px;
+  bottom: 0px;
+  left: 0px;
 
   background: #6b40e3;
   border-radius: 4px;
@@ -96,4 +96,226 @@ p {
   letter-spacing: 0.08em;
 
   color: #ffffff;
+}
+
+.buttons {
+  width: 798px;
+  height: 150px;
+  position: relative;
+  margin: auto;
+}
+
+input:focus,
+textarea:focus,
+option:focus,
+select:focus {
+  outline-color: #bcbcbc;
+}
+
+.education {
+  position: relative;
+  height: 473px;
+  width: 798px;
+
+  margin: auto;
+  margin-top: 77px;
+  border-bottom: 1px solid #c1c1c1;
+}
+
+.institute {
+  height: 125px;
+  width: 798px;
+  margin-bottom: 15px;
+}
+
+.institute .topLabel {
+  width: 798px;
+  height: 21px;
+  margin-bottom: 8px;
+
+  font-family: "Helvetica Neue";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 21px;
+
+  display: flex;
+  align-items: center;
+
+  color: #000000;
+}
+
+.institute input {
+  box-sizing: border-box;
+
+  width: 798px;
+  height: 48px;
+
+  background: #ffffff;
+  border: 1px solid #bcbcbc;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  padding-left: 16px;
+}
+
+.institute .bottomLabel {
+  width: 371px;
+  height: 21px;
+
+  font-family: "Helvetica Neue";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 21px;
+  color: #2e2e2e;
+}
+
+.details {
+  display: flex;
+  width: 798px;
+  justify-content: space-between;
+}
+
+.details .degree,
+.details .dueDate {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 371px;
+  text-align: start;
+}
+
+.details .degree label,
+.details .dueDate label {
+  width: 371px;
+  height: 21px;
+
+  font-family: "Helvetica Neue";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 21px;
+  color: #000000;
+}
+
+.details .degree select,
+.details .dueDate input {
+  width: 371px;
+  height: 48px;
+
+  background: #ffffff;
+  border: 1px solid #bcbcbc;
+  border-radius: 4px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+
+  font-family: "Helvetica Neue";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 21px;
+  padding-left: 16px;
+  padding-right: 13px;
+
+  padding-top: 13px;
+  padding-bottom: 14px;
+}
+
+.description {
+  width: 798px;
+  display: flex;
+  flex-direction: column;
+
+  width: 798px;
+  text-align: start;
+}
+
+.description label {
+  margin-top: 20px;
+  width: 798px;
+  height: 21px;
+
+  font-family: "Helvetica Neue";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 21px;
+  font-display: bold;
+
+  display: flex;
+  align-items: center;
+
+  color: #000000;
+}
+
+.description textarea {
+  box-sizing: border-box;
+  margin-top: 8px;
+
+  width: 798px;
+  height: 103px;
+
+  background: #ffffff;
+  border: 1px solid #bcbcbc;
+  border-radius: 4px;
+
+  font-family: "Helvetica Neue";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 21px;
+  padding-bottom: 16px;
+  padding-left: 16px;
+  padding-top: 13px;
+  padding-right: 16px;
+
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.extraExps {
+  margin-top: 45px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px;
+  padding-left: 25px;
+  gap: 20px;
+
+  position: absolute;
+  width: 289px;
+  height: 48px;
+
+  background: #62a1eb;
+  border-radius: 4px;
+  border: 1px solid #62a1eb;
+
+  font-family: "Helvetica Neue";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+
+  color: #ffffff;
+}
+.extraExpBtns {
+  position: relative;
+  width: 798px;
+  height: 100px;
+  position: relative;
+  margin: auto;
+}
+
+.instituteInvalid {
+  position: absolute;
+  margin-top: 208.75px;
+  margin-left: 951.5px;
+}
+
+.instituteValid {
+  position: absolute;
+  margin-top: 208.75px;
+  margin-left: 881.5px;
+  z-index: 7;
 }

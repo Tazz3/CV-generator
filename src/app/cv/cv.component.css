@@ -147,3 +147,89 @@
   min-height: 341px;
   margin: auto;
 }
+
+.experience,
+.education {
+  width: 680px;
+  min-height: 222px;
+  margin: auto;
+  padding-top: 24px;
+  padding-bottom: 32px;
+}
+
+.exp,
+.edu {
+  position: relative;
+  width: 680px;
+  min-height: 222px;
+}
+
+.exp h3,
+.edu h3 {
+  width: 143px;
+  height: 22px;
+  font-family: "Helvetica Neue";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+  margin-bottom: 15px;
+
+  color: #f93b1d;
+}
+
+.exps,
+.edus {
+  position: relative;
+  width: 680px;
+  min-height: 120px;
+}
+
+.exps h4,
+.edus h4 {
+  position: absolute;
+  width: 400px;
+  height: 20px;
+
+  font-family: "Helvetica Neue";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+
+  color: #1a1a1a;
+}
+
+.exps .years,
+.edus .year {
+  position: absolute;
+  width: 300px;
+  height: 19px;
+  top: 25px;
+
+  font-family: "Helvetica Neue";
+  font-style: italic;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: #919191;
+}
+
+.exps .descr,
+.edus .descrEdu {
+  position: absolute;
+  width: 662px;
+  height: 66px;
+
+  top: 64px;
+
+  font-family: "Helvetica Neue";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+
+  text-transform: capitalize;
+
+  color: #000000;
+}

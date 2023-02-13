@@ -1,6 +1,6 @@
 <section class="forms">
   <div class="backButton">
-    <button [routerLink]="['']">
+    <button [routerLink]="['']" (click)="reFreshing()">
       <img
         src="../../assets/Images/backBtn.png"
         alt="back Button"
@@ -166,21 +166,26 @@
         style="display: none"
         [(ngModel)]="image"
         formControlName="image"
-        (change)="uploadImage($event)"
+        (change)="handleFileInput($event)"
       />
       <button (click)="picture.click()">ატვირთვა</button>
     </div>
     <div class="about-info">
       <label for="aboutInfo">ჩემ შესახებ (არასავალდებულო) </label>
-      <input
-        type="text"
+      <textarea
         name="anoutInfo"
         id="aboutInfo"
         placeholder="ზოგადი ინფო შენ შესახებ"
         [(ngModel)]="aboutMe"
         formControlName="aboutMe"
-        (keyup)="cvUpdate('about-me')"
-      />
+        (keyup)="cvUpdate('about_me')"
+        [ngStyle]="{
+          'border-color':
+            myForm.get('name').valid && myForm.get('name').touched
+              ? 'green'
+              : '#bcbcbc'
+        }"
+      ></textarea>
     </div>
     <div class="email-phone-info">
       <label
@@ -240,7 +245,7 @@
         placeholder="+995 551 12 34 56"
         formControlName="phoneNumber"
         [(ngModel)]="phone"
-        (keyup)="cvUpdate('phone-number')"
+        (keyup)="cvUpdate('phone_number')"
         [ngStyle]="{
           'border-color':
             myForm.get('phoneNumber').invalid &&

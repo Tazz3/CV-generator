@@ -1,6 +1,6 @@
 <section class="forms">
   <div class="backButton">
-    <button [routerLink]="['']">
+    <button [routerLink]="['']" (click)="reFreshing()">
       <img
         src="../../assets/Images/backBtn.png"
         alt="back Button"
@@ -8,10 +8,233 @@
       />
     </button>
   </div>
+  <div class="validation">
+    <img
+      src="../../assets/Images/Vector-(2).png"
+      alt="green"
+      title="green"
+      class="positionValid"
+      *ngIf="myForm.get('position').valid && myForm.get('position').touched"
+    />
+    <img
+      src="../../assets/Images/Vector-(1).png"
+      alt="red"
+      title="red"
+      class="positionInvalid"
+      *ngIf="myForm.get('position').invalid && myForm.get('position').touched"
+    />
+
+    <img
+      src="../../assets/Images/Vector-(2).png"
+      alt="green"
+      title="green"
+      class="employerValid"
+      *ngIf="myForm.get('employer').valid && myForm.get('employer').touched"
+    />
+    <img
+      src="../../assets/Images/Vector-(1).png"
+      alt="red"
+      title="red"
+      class="employerInvalid"
+      *ngIf="myForm.get('employer').invalid && myForm.get('employer').touched"
+    />
+  </div>
   <header>
     <h1>გამოცდილება</h1>
   </header>
   <p>{{ curPage }}/3</p>
-  <button class="prevBtn" (click)="prevPage()">უკან</button>
-  <button class="nextBtn" (click)="nextPage()">შემდეგი</button>
+
+  <form [formGroup]="myForm">
+    <section
+      class="experience"
+      *ngFor="let i of expArray; index as idx"
+      [id]="count"
+    >
+      <div class="position">
+        <label
+          for="position"
+          class="topLabel"
+          [ngStyle]="{
+            color:
+              myForm.get('position').invalid && myForm.get('position').touched
+                ? 'red'
+                : 'black'
+          }"
+          >თანამდებოდა</label
+        >
+        <input
+          type="text"
+          placeholder="დეველოპერი, დიზაინერი, ა.შ."
+          id="position"
+          formControlName="position"
+          [(ngModel)]="expArray[idx]['position']"
+          (keyup)="setToSession()"
+          [ngStyle]="{
+            'border-color':
+              myForm.get('position').invalid && myForm.get('position').touched
+                ? 'red'
+                : '#bcbcbc'
+          }"
+          [ngStyle]="{
+            'border-color':
+              myForm.get('position').valid && myForm.get('position').touched
+                ? 'green'
+                : '#bcbcbc'
+          }"
+        />
+
+        <label for="position" class="bottomLabel">მინიმუმ 2 სიმბოლო</label>
+      </div>
+      <div class="employer">
+        <label
+          for="employer"
+          class="topLabel"
+          [ngStyle]="{
+            color:
+              myForm.get('employer').invalid && myForm.get('employer').touched
+                ? 'red'
+                : 'black'
+          }"
+          >დამსაქმებელი</label
+        >
+        <input
+          type="text"
+          placeholder="დამსაქმებელი"
+          id="employer"
+          formControlName="employer"
+          [(ngModel)]="expArray[idx]['employer']"
+          (keyup)="setToSession()"
+          [ngStyle]="{
+            'border-color':
+              myForm.get('employer').invalid && myForm.get('employer').touched
+                ? 'red'
+                : '#bcbcbc'
+          }"
+          [ngStyle]="{
+            'border-color':
+              myForm.get('employer').valid && myForm.get('employer').touched
+                ? 'green'
+                : '#bcbcbc'
+          }"
+        />
+
+        <label for="employer" class="bottomLabel">მინიმუმ 2 სიმბოლო</label>
+      </div>
+      <div class="dates">
+        <div class="startDate">
+          <label
+            for="startDate"
+            [ngStyle]="{
+              color:
+                myForm.get('start_date').invalid &&
+                myForm.get('start_date').touched
+                  ? 'red'
+                  : 'black'
+            }"
+            >დაწყების რიცხვი</label
+          >
+          <input
+            type="date"
+            placeholder="დამსაქმებელი"
+            id="startDate"
+            formControlName="start_date"
+            [(ngModel)]="expArray[idx]['start_date']"
+            (change)="setToSession()"
+            [ngStyle]="{
+              'border-color':
+                myForm.get('start_date').invalid &&
+                myForm.get('start_date').touched
+                  ? 'red'
+                  : '#bcbcbc'
+            }"
+            [ngStyle]="{
+              'border-color':
+                myForm.get('start_date').valid &&
+                myForm.get('start_date').touched
+                  ? 'green'
+                  : '#bcbcbc'
+            }"
+          />
+        </div>
+        <div class="dueDate">
+          <label
+            for="dueDate"
+            [ngStyle]="{
+              color:
+                myForm.get('due_date').invalid && myForm.get('due_date').touched
+                  ? 'red'
+                  : 'black'
+            }"
+            >დამთავრების რიცხვი</label
+          >
+          <input
+            type="date"
+            placeholder="დამსაქმებელი"
+            id="dueDate"
+            formControlName="due_date"
+            [(ngModel)]="expArray[idx]['due_date']"
+            (change)="setToSession()"
+            [ngStyle]="{
+              'border-color':
+                myForm.get('due_date').invalid && myForm.get('due_date').touched
+                  ? 'red'
+                  : '#bcbcbc'
+            }"
+            [ngStyle]="{
+              'border-color':
+                myForm.get('due_date').valid && myForm.get('due_date').touched
+                  ? 'green'
+                  : '#bcbcbc'
+            }"
+          />
+        </div>
+      </div>
+      <div class="description">
+        <label
+          for="expDescription"
+          [ngStyle]="{
+            color:
+              myForm.get('description').invalid &&
+              myForm.get('description').touched
+                ? 'red'
+                : 'black'
+          }"
+          >აღწერა</label
+        >
+        <textarea
+          name="expDescription"
+          id="expDescription"
+          placeholder="როლი თანამდებობაზე და ზოგადი აღწერა"
+          formControlName="description"
+          [(ngModel)]="expArray[idx]['description']"
+          (keyup)="setToSession()"
+          [ngStyle]="{
+            'border-color':
+              myForm.get('description').invalid &&
+              myForm.get('description').touched
+                ? 'red'
+                : '#bcbcbc'
+          }"
+          [ngStyle]="{
+            'border-color':
+              myForm.get('description').valid &&
+              myForm.get('description').touched
+                ? 'green'
+                : '#bcbcbc'
+          }"
+        ></textarea>
+      </div>
+    </section>
+    <div class="extraExpBtn">
+      <button class="extraExp" (click)="addCount()">
+        მეტი გამოცდილების დამატება
+      </button>
+    </div>
+  </form>
+  <div class="buttons">
+    <button class="prevBtn" (click)="prevPage()">უკან</button>
+    <button class="nextBtn" [disabled]="!myForm.valid" (click)="nextPage()">
+      შემდეგი
+    </button>
+  </div>
 </section>

@@ -8,10 +8,147 @@
       />
     </button>
   </div>
+  <div class="validation">
+    <img
+      src="../../assets/Images/Vector-(2).png"
+      alt="green"
+      title="green"
+      class="instituteValid"
+      *ngIf="myForm.get('institute').valid && myForm.get('institute').touched"
+    />
+    <img
+      src="../../assets/Images/Vector-(1).png"
+      alt="red"
+      title="red"
+      class="instituteInvalid"
+      *ngIf="myForm.get('institute').invalid && myForm.get('institute').touched"
+    />
+  </div>
   <header>
     <h1>განათლება</h1>
   </header>
   <p>{{ curPage }}/3</p>
-  <button class="prevBtn" (click)="prevPage()">უკან</button>
-  <button class="finish">დასრულება</button>
+
+  <form [formGroup]="myForm">
+    <section
+      class="education"
+      *ngFor="let i of degreesEdu; index as idx"
+      [id]="count"
+    >
+      <div class="institute">
+        <label for="institute" class="topLabel">სასწავლებელი</label>
+        <input
+          type="text"
+          placeholder="სასწავლებელი"
+          id="institute"
+          formControlName="institute"
+          [(ngModel)]="degreesEdu[idx]['institute']"
+          (keyup)="setToSessionEdu()"
+          [ngStyle]="{
+            'border-color':
+              myForm.get('institute').invalid && myForm.get('institute').touched
+                ? 'red'
+                : '#bcbcbc'
+          }"
+          [ngStyle]="{
+            'border-color':
+              myForm.get('institute').valid && myForm.get('institute').touched
+                ? 'green'
+                : '#bcbcbc'
+          }"
+        />
+
+        <label for="institute" class="bottomLabel">მინიმუმ 2 სიმბოლო</label>
+      </div>
+      <div class="details">
+        <div class="degree">
+          <label for="degree">ხარისხი</label>
+
+          <select
+            name="degree"
+            id="degree"
+            formControlName="degree"
+            [(ngModel)]="degreesEdu[idx]['degree']"
+            (change)="setToSessionEdu()"
+            [ngStyle]="{
+              'border-color':
+                myForm.get('degree').invalid && myForm.get('degree').touched
+                  ? 'red'
+                  : '#bcbcbc'
+            }"
+            [ngStyle]="{
+              'border-color':
+                myForm.get('degree').valid && myForm.get('degree').touched
+                  ? 'green'
+                  : '#bcbcbc'
+            }"
+          >
+            <option value="" disabled selected hidden>აირჩიეთ ხარისხი</option>
+            <option *ngFor="let y of degree" [value]="y">
+              {{ y }}
+            </option>
+          </select>
+        </div>
+        <div class="dueDate">
+          <label for="dueDate">დამთავრების რიცხვი</label>
+          <input
+            type="date"
+            id="dueDate"
+            formControlName="due_date"
+            [(ngModel)]="degreesEdu[idx]['due_date']"
+            (change)="setToSessionEdu()"
+            [ngStyle]="{
+              'border-color':
+                myForm.get('due_date').invalid && myForm.get('due_date').touched
+                  ? 'red'
+                  : '#bcbcbc'
+            }"
+            [ngStyle]="{
+              'border-color':
+                myForm.get('due_date').valid && myForm.get('due_date').touched
+                  ? 'green'
+                  : '#bcbcbc'
+            }"
+          />
+        </div>
+      </div>
+      <div class="description">
+        <label for="expDescription">აღწერა</label>
+        <textarea
+          name="edDescription"
+          id="edDescription"
+          placeholder="განათლების აღწერა"
+          formControlName="description"
+          [(ngModel)]="degreesEdu[idx]['description']"
+          (keyup)="setToSessionEdu()"
+          [ngStyle]="{
+            'border-color':
+              myForm.get('description').invalid &&
+              myForm.get('description').touched
+                ? 'red'
+                : '#bcbcbc'
+          }"
+          [ngStyle]="{
+            'border-color':
+              myForm.get('description').valid &&
+              myForm.get('description').touched
+                ? 'green'
+                : '#bcbcbc'
+          }"
+        ></textarea>
+      </div>
+    </section>
+    <div class="extraExpBtns">
+      <button class="extraExps" (click)="addCounts()">
+        სხვა სასწავლებლის დამატება
+      </button>
+    </div>
+  </form>
+
+  <div class="buttons">
+    <button class="prevBtn" (click)="prevPage()">უკან</button>
+    <button class="finish" [disabled]="!myForm.valid" (click)="finish()">
+      დასრულება
+    </button>
+  </div>
 </section>

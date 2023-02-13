@@ -14,7 +14,7 @@
     <div
       class="bottomLine"
       [ngStyle]="{
-        'border-bottom': lineValid ? '2px solid #C8C8C8' : 'none'
+        'border-bottom': lineValid ? '1px solid #C8C8C8' : 'none'
       }"
     >
       <div class="about-info" *ngIf="aboutMe">
@@ -22,6 +22,32 @@
         <p>
           {{ aboutMe }}
         </p>
+      </div>
+    </div>
+  </section>
+  <section class="experience">
+    <div
+      class="exp"
+      *ngIf="experience"
+      [ngStyle]="{
+        'border-bottom': secondLine ? '1px solid #C8C8C8' : 'none'
+      }"
+    >
+      <h3>გამოცდილება</h3>
+      <div class="exps" *ngFor="let item of experience; index as i">
+        <h4>{{ item["position"] }} , {{ item["employer"] }}</h4>
+        <p class="years">{{ item["start_date"] }}{{ item["due_date"] }}</p>
+        <p class="descr">{{ item["description"] }}</p>
+      </div>
+    </div>
+  </section>
+  <section class="education">
+    <div class="edu" *ngIf="education">
+      <h3>განათლება</h3>
+      <div class="edus" *ngFor="let item of education; index as i">
+        <h4>{{ item["institute"] }} , {{ item["degree"] }}</h4>
+        <p class="year">{{ item["due_date"] }}</p>
+        <p class="descrEdu">{{ item["description"] }}</p>
       </div>
     </div>
   </section>

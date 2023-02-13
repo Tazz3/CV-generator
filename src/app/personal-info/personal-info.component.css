@@ -5,7 +5,8 @@
   position: relative;
 }
 
-input:focus {
+input:focus,
+.about-info textarea:focus {
   outline-color: #bcbcbc;
 }
 
@@ -209,7 +210,7 @@ form {
   color: #000000;
 }
 
-.about-info input {
+.about-info textarea {
   box-sizing: border-box;
   margin-top: 8px;
   margin-bottom: 33px;
@@ -228,7 +229,7 @@ form {
   line-height: 21px;
   padding-bottom: 16px;
   padding-left: 16px;
-  padding-top: -30px;
+  padding-top: 13px;
   padding-right: 16px;
 
   color: rgba(0, 0, 0, 0.6);
